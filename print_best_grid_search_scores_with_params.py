@@ -11,8 +11,7 @@ Raises:
 def print_best_grid_search_scores_with_params(grid_search, n=5):
     if not hasattr(grid_search, 'best_score_'):
         raise KeyError('grid_search is not fitted.')
-    print(grid_search.best_score_)
-    print("Grid scores on validation set:")
+    print("Best grid scores on validation set:")
     indexes = np.argsort(grid_search.cv_results_['mean_test_score'])[::-1][:n]
     means = grid_search.cv_results_['mean_test_score'][indexes]
     stds = grid_search.cv_results_['std_test_score'][indexes]
